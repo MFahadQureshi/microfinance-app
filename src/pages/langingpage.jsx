@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const LandingPage = () => (
   <div className="min-h-screen w-full bg-gradient-to-r from-purple-500 to-blue-500">
     {/* Navbar */}
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-10">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="/" className="text-2xl font-bold text-blue-600">Saylani Microfinance</a>
+        <Link to="/" className="text-2xl font-bold text-blue-600">Saylani Microfinance</Link>
         <ul className="hidden md:flex space-x-8 text-lg">
-          <li><a href="#home" className="hover:text-blue-600 transition-all">Home</a></li>
-          <li><a href="#services" className="hover:text-blue-600 transition-all">Services</a></li>
-          <li><a href="#about" className="hover:text-blue-600 transition-all">About Us</a></li>
-          <li><a href="#contact" className="hover:text-blue-600 transition-all">Contact</a></li>
-          <li><a href="#apply" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all">Apply Now</a></li>
+          <li><Link to="/" className="hover:text-blue-600 transition-all">Home</Link></li>
+          <li><Link to="#services" className="hover:text-blue-600 transition-all">Services</Link></li>
+          <li><Link to="#about" className="hover:text-blue-600 transition-all">About Us</Link></li>
+          <li><Link to="#contact" className="hover:text-blue-600 transition-all">Contact</Link></li>
+          <li><Link to="/login" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all">Apply Now</Link></li>
         </ul>
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
@@ -24,7 +25,7 @@ export const LandingPage = () => (
       </div>
     </nav>
 
-    <div className="flex flex-col items-center justify-between min-h-full py-8 px-8 w-full bg-cover bg-center" style={{ backgroundImage: 'url("https://source.unsplash.com/1600x900/?finance")' }}>
+    <div id="home" className="flex flex-col items-center justify-between min-h-full py-8 px-8 w-full bg-cover bg-center" style={{ backgroundImage: 'url("https://source.unsplash.com/1600x900/?finance")' }}>
       {/* Hero Section */}
       <section className="text-center text-white mb-12 z-10 relative">
         <h1 className="text-5xl font-extrabold leading-tight mb-4 text-shadow-lg">
@@ -39,7 +40,7 @@ export const LandingPage = () => (
       </section>
 
       {/* Loan Categories */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+      <div id="services" className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
         <div className="p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out w-full">
           <h2 className="text-2xl font-bold text-blue-600">Wedding Loans</h2>
           <ul className="mt-2 list-disc list-inside text-gray-700">
@@ -99,15 +100,36 @@ export const LandingPage = () => (
       </div>
     </div>
 
-    {/* Full Page Footer */}
+    {/* About Us Section */}
+    <div id="about" className="py-16 bg-white text-center">
+      <h2 className="text-3xl font-bold text-blue-600 mb-4">About Us</h2>
+      <p className="text-lg text-gray-700 mx-auto max-w-3xl">
+        We are committed to providing financial solutions to underserved communities, ensuring that everyone has the opportunity to pursue their goals. Our loans are designed to empower individuals and families across Pakistan.
+      </p>
+    </div>
+
+    {/* Contact Section */}
+    <div id="contact" className="py-16 bg-gray-100 text-center">
+      <h2 className="text-3xl font-bold text-blue-600 mb-4">Contact Us</h2>
+      <p className="text-lg text-gray-700 mx-auto max-w-3xl">
+        Have any questions? Feel free to reach out to us. We're here to help.
+      </p>
+      <form className="mt-6 max-w-2xl mx-auto">
+        <input type="email" className="w-full p-3 rounded-lg border border-gray-300 mb-4" placeholder="Your Email" />
+        <textarea className="w-full p-3 rounded-lg border border-gray-300 mb-4" placeholder="Your Message" rows="4"></textarea>
+        <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition-all">Send Message</button>
+      </form>
+    </div>
+
+    {/* Footer */}
     <footer className="bg-blue-600 py-8 text-center text-white w-full mt-auto">
       <div className="container mx-auto">
         <p className="text-lg font-semibold">Saylani Microfinance</p>
         <p className="text-sm">Empowering communities with accessible financial solutions</p>
         <div className="mt-4 flex justify-center space-x-6">
-          <a href="/terms" className="hover:underline">Terms & Conditions</a>
-          <a href="/privacy" className="hover:underline">Privacy Policy</a>
-          <a href="/contact" className="hover:underline">Contact Us</a>
+          <Link to="#terms" className="hover:underline">Terms & Conditions</Link>
+          <Link to="#privacy" className="hover:underline">Privacy Policy</Link>
+          <Link to="#contact" className="hover:underline">Contact Us</Link>
         </div>
         <p className="mt-6 text-sm">© 2025 Saylani Microfinance. All Rights Reserved.</p>
       </div>
